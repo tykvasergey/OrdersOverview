@@ -1,0 +1,40 @@
+<?php
+/**
+ * @var $block \BroSolutions\OrdersOverview\Block\Adminhtml\Order\View\DeliveryComments
+ */
+$comments = $block->getComments();
+$status = $block->getDeliveryStatus();
+?>
+<?php if ($comments || $status): ?>
+    <section class="admin__page-section delivery-information">
+        <div class="admin__page-section-title">
+            <span class="title"><?= $block->escapeHtml(__('Delivery Information')) ?></span>
+        </div>
+        <div class="admin__page-section-content">
+            <?php if ($comments): ?>
+                <div class="admin__page-section-item delivery-comments order-payment-method">
+                    <div class="admin__page-section-item-title">
+                        <span class="title"><?= $block->escapeHtml(__('Delivery Comments')) ?></span>
+                    </div>
+                    <div class="admin__page-section-item-content">
+                        <?php foreach ($comments as $comment): ?>
+                            <p><?= $comment->getComment() ?><br>
+                                <?= $comment->getCreatedAt() ?>
+                            </p>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <?php if ($status): ?>
+                <div class="admin__page-section-item delivery-status order-shipping-address">
+                    <div class="admin__page-section-item-title delivery-status">
+                        <span class="title"><?= $block->escapeHtml(__('Delivery Status')); ?></span>
+                    </div>
+                    <div class="admin__page-section-item-content">
+                        <?= $block->getDeliveryStatus() ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </section>
+<?php endif; ?>

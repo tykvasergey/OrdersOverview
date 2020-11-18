@@ -1,0 +1,55 @@
+<?php
+/**
+ * @var $block \BroSolutions\OrdersOverview\Block\Adminhtml\Menu
+ */
+?>
+
+
+<style>
+    .navigation-menu {
+        width: 300px;
+    }
+    .navigation-menu ul {
+        padding: 0;
+        margin: 0;
+    }
+    .navigation-menu ul li a {
+        display:block;
+        padding: 5px 15px;
+        color: #999;
+        background-color: #e5e5e5;
+        border-top: 1px solid #999;
+        text-decoration: none;
+
+    }
+    .navigation-menu ul li:first-child {
+        border: none;
+    }
+    .navigation-menu ul li a:hover {
+        background-color: #f2f2f2;
+
+    }
+
+    .navigation-menu ul li i {
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        float: right;
+        margin-top: 5px;
+    }
+</style>
+
+<div class="nav-panel">
+    <nav class="navigation-menu" data-action="navigation">
+        <ul id="menu" data-mage-init='{"menu":{"responsive":true, "expanded":true, "delay": 200, "position":{"my":"left top","at":"left+10 top+30"}}}'>
+            <?php foreach ($block->getOrderTypes() as $type):?>
+                <li class="level0 level-top ui-menu-item">
+                    <a href="<?= $block->getPageUrl($type['url']) ?>"><?= $block->escapeHtml(__($type['title'])) ?><i class="arrow right"></i></a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </nav>
+</div>

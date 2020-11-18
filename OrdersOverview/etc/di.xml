@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="ordersoverview_present_listing_data_source" xsi:type="string">
+                    BroSolutions\OrdersOverview\Model\ResourceModel\Present\Grid\Collection
+                </item>
+                <item name="ordersoverview_past_listing_data_source" xsi:type="string">
+                    BroSolutions\OrdersOverview\Model\ResourceModel\Past\Grid\Collection
+                </item>
+                <item name="ordersoverview_future_listing_data_source" xsi:type="string">
+                    BroSolutions\OrdersOverview\Model\ResourceModel\Future\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="BroSolutions\OrdersOverview\Model\ResourceModel\Present\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">sales_order</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\Sales\Model\ResourceModel\Order</argument>
+        </arguments>
+    </type>
+
+    <type name="BroSolutions\OrdersOverview\Model\ResourceModel\Past\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">sales_order</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\Sales\Model\ResourceModel\Order</argument>
+        </arguments>
+    </type>
+    <type name="BroSolutions\OrdersOverview\Model\ResourceModel\Future\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">sales_order</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\Sales\Model\ResourceModel\Order</argument>
+        </arguments>
+    </type>
+
+</config>

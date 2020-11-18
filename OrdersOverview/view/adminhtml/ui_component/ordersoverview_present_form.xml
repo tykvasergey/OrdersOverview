@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">ordersoverview_present_form.ordersoverview_present_form_data_source</item>
+            <item name="deps" xsi:type="string">ordersoverview_present_form.ordersoverview_present_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Employee Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">ordersoverview_present_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">BroSolutions\OrdersOverview\Block\Adminhtml\Edit\BackButton</item>
+            <item name="save" xsi:type="string">BroSolutions\OrdersOverview\Block\Adminhtml\Edit\SaveButton</item>
+        </item>
+    </argument>
+    <dataSource name="ordersoverview_present_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">BroSolutions\OrdersOverview\Ui\DataProvider\OrdersDataProvider</argument>
+            <argument name="name" xsi:type="string">ordersoverview_present_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+                <item name="submit_url" xsi:type="url" path="ordersoverview/present/save"/>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="default">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Information</item>
+            </item>
+        </argument>
+        <htmlContent name="quick_change_status">
+            <block class="BroSolutions\OrdersOverview\Block\Adminhtml\Comments\QuickChangeStatus" name="quick.change.status"/>
+        </htmlContent>
+        <field name="instructions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Uitvoer instructie:</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">employee</item>
+                    <item name="dataScope" xsi:type="string">instructions</item>
+                    <item name="disabled" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+        </field>
+        <field name="shipping_address">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Afleveradres:</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">employee</item>
+                    <item name="dataScope" xsi:type="string">shipping_address</item>
+                    <item name="disabled" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+        </field>
+        <field name="customer_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Naam ontvanger:</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">employee</item>
+                    <item name="dataScope" xsi:type="string">customer_name</item>
+                    <item name="disabled" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+        </field>
+        <field name="increment_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Order nummer:</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">employee</item>
+                    <item name="dataScope" xsi:type="string">increment_id</item>
+                    <item name="disabled" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+        </field>
+        <field name="delivery_shipping_note">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Bezorgtijd:</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">employee</item>
+                    <item name="dataScope" xsi:type="string">delivery_shipping_note</item>
+                    <item name="disabled" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+        </field>
+        <field name="delivery_date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Bezorgdatum:</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">employee</item>
+                    <item name="dataScope" xsi:type="string">delivery_date</item>
+                    <item name="disabled" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+        </field>
+        <field name="delivery_status">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">BroSolutions\OrdersOverview\Model\Source\DriverStatuses</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Track status:</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">employee</item>
+                    <item name="dataScope" xsi:type="string">delivery_status</item>
+                    <item name="component" xsi:type="string">BroSolutions_OrdersOverview/js/form/element/select/status</item>
+                </item>
+            </argument>
+        </field>
+        <field name="delivery_comment">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Opmerking Track and Trace:</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">employee</item>
+                    <item name="dataScope" xsi:type="string">delivery_comment</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+    <fieldset name="order_items">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Order Items</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+        <htmlContent name="order_items_information">
+            <block class="BroSolutions\OrdersOverview\Block\Adminhtml\Order\Items" name="order.items"/>
+        </htmlContent>
+    </fieldset>
+    <fieldset name="delivery_comment_history">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Comment History</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+        <htmlContent name="delivery_comment_history">
+            <block class="BroSolutions\OrdersOverview\Block\Adminhtml\Comments\History" name="comments.history"/>
+        </htmlContent>
+    </fieldset>
+</form>

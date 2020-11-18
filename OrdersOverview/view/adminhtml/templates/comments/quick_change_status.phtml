@@ -1,0 +1,27 @@
+<?php
+/**
+ * @var $block \BroSolutions\OrdersOverview\Block\Adminhtml\Comments\QuickChangeStatus
+ */
+$statuses = $block->getStatuses();
+?>
+
+<?php if ($statuses): ?>
+    <ul class="quick-statuses">
+        <?php foreach ($statuses as $status): ?>
+            <li class="quick-status <?= str_replace(')', '', str_replace('(', '', str_replace(' ', '_', strtolower($status['label'])))) ?>" data-id="<?= $status['value'] ?>"><?= $status['label'] ?></li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
+
+<script>
+    requirejs(['jquery'],
+        function ($) {
+            $('.quick-status').on('click', function (e) {
+                var option = $(document).find("[name='delivery_status']").find( "[value='" + $(e.target).data('id') + "']");
+                if (option.length > 0) {
+                option.prop('selected', true).trigger('change');
+                }
+            })
+        }
+    );
+</script>

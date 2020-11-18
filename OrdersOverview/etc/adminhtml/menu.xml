@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+
+    <menu>
+        <add id="BroSolutions_OrdersOverview::orders_overview" title="Orderoverzicht" translate="title"
+             module="BroSolutions_OrdersOverview" sortOrder="10" parent="Magento_Sales::sales"
+             resource="BroSolutions_OrdersOverview::orders_overview"/>
+        <add id="BroSolutions_OrdersOverview::orders_overview_index" title="Orderoverzichten" translate="title"
+             module="BroSolutions_OrdersOverview" sortOrder="5" parent="BroSolutions_OrdersOverview::orders_overview"
+             action="ordersoverview/index/index" resource="BroSolutions_OrdersOverview::orders_overview_index"/>
+    </menu>
+
+</config>

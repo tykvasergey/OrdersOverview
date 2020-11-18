@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+        <referenceBlock name="order_additional_info">
+            <block class="BroSolutions\OrdersOverview\Block\Adminhtml\Order\View\DeliveryComments" name="sales_order_view_delivery_comments"
+                   template="BroSolutions_OrdersOverview::order/view/delivery_comments.phtml"/>
+        </referenceBlock>
+    </body>
+
+</page>

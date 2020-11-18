@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var $block \BroSolutions\OrdersOverview\Block\Adminhtml\Comments\History
+ */
+$comments = $block->getComments();
+?>
+
+<?php if ($comments): ?>
+<div class="delivery-comments-history-wrap">
+    <?php foreach ($comments as $comment): ?>
+        <div class="delivery-comment-item">
+            <div class="comment">
+                <p><?= $comment->getComment() ?></p>
+            </div>
+            <div class="created-at">
+                <?= $comment->getCreatedAt() ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+<?php else: ?>
+No Comments
+<?php endif; ?>

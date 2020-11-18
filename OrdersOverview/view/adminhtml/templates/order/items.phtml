@@ -1,0 +1,33 @@
+<?php
+/**
+ * @var $block \BroSolutions\OrdersOverview\Block\Adminhtml\Order\Items
+ */
+$items = $block->getOrderItems();
+?>
+<div class="order-items">
+    <?php if (!$items): ?>
+        <legend class="legend"><span><?= $block->escapeHtml(__('No Items')) ?></span></legend><br/>
+    <?php else: ?>
+        <?php foreach ($block->getOrderItems() as $key => $item): ?>
+            <div class="order-item">
+                <legend class="legend"><span><?= $block->escapeHtml(__('Item #%1', $key + 1)) ?></span></legend>
+                <br/>
+                <div class="field product-sku">
+                    <label class="label"
+                           for="product-sku"><span><?= $block->escapeHtml(__('Articel:')) ?></span></label>
+                    <div class="control">
+                        <input id="product-sku" disabled value="<?= $item->getProduct()->getSku() ?>" class="input-text"
+                               type="text"/>
+                    </div>
+                </div>
+                <div class="field qty">
+                    <label class="label" for="qty"><span><?= $block->escapeHtml(__('Aantal:')) ?></span></label>
+                    <div class="control">
+                        <input id="qty" disabled value="<?= (int)$item->getQtyOrdered() ?>" class="input-text"
+                               type="text"/>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>
