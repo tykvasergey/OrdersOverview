@@ -27,11 +27,35 @@
     </dataSource>
     <listing>
         <listingToolbar>
-            <paging name="listing_paging"/>
+            <paging name="listing_paging">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="sizesConfig" xsi:type="array">
+                            <item name="component" xsi:type="string">Magento_Ui/js/grid/paging/sizes</item>
+                            <item name="template" xsi:type="string">ui/grid/paging/sizes</item>
+                            <item name="value" xsi:type="number">50</item>
+                        </item>
+                    </item>
+                </argument>
+            </paging>
             <filters name="listing_filters" />
         </listingToolbar>
     </listing>
     <columns name="ordersoverview_past_columns">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="childDefaults" xsi:type="array">
+                    <item name="fieldAction" xsi:type="array">
+                        <item name="provider" xsi:type="string">ordersoverview_past_listing.ordersoverview_past_listing.ordersoverview_past_columns.actions</item>
+                        <item name="target" xsi:type="string">applyAction</item>
+                        <item name="params" xsi:type="array">
+                            <item name="0" xsi:type="string">edit</item>
+                            <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                        </item>
+                    </item>
+                </item>
+            </item>
+        </argument>
         <column name="delivery_status" component="Magento_Ui/js/grid/columns/select">
             <settings>
                 <bodyTmpl>BroSolutions_OrdersOverview/ui/grid/cells/status</bodyTmpl>
